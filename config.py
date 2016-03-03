@@ -4,22 +4,6 @@
 # Edit the values below to configure the training and usage of the
 # face recognition box.
 
-# Pi GPIO port which is connected to the lock servo signal line.
-LOCK_SERVO_PIN = 18
-# Pulse width value (in microseconds) for the servo at the unlocked and locked
-# position.  Center should be a value of 1500, max left a value of 1000, and 
-# max right a value of 2000.
-LOCK_SERVO_UNLOCKED = 2000
-LOCK_SERVO_LOCKED   = 1100
-
-# Pi GPIO port which is connected to the button.
-BUTTON_PIN = 25
-# Down and up values for the button.  The code expects to detect a down to up
-# transition as an activation of the button.  Therefore a normally open button
-# should be False (low) when down and True (high) when up.
-BUTTON_DOWN = False  # Low signal
-BUTTON_UP   = True   # High signal
-
 # Threshold for the confidence of a recognized face before it's considered a
 # positive match.  Confidence values below this threshold will be considered
 # a positive match because the lower the confidence value, or distance, the
@@ -61,8 +45,8 @@ DEBUG_IMAGE = 'capture.pgm'
 def get_camera():	
 	# Camera to use for capturing images.
 	# Use this code for capturing from the Pi camera:
-	import picam
-	return picam.OpenCVCapture()
+	import picamera
+	return picamera.OpenCVCapture()
 	# Use this code for capturing from a webcam:
 	# import webcam
 	# return webcam.OpenCVCapture(device_id=0)
