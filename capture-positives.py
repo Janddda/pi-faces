@@ -49,7 +49,7 @@ if __name__ == '__main__':
 	while True:
 		# Check if button was pressed or 'c' was received, then capture image.
 		if box.is_button_up() or is_letter_input('c'):
-			print ('Capturing image...'
+			print ('Capturing image...')
 			image = camera.read()
 			# Convert image to grayscale.
 			image = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
