@@ -45,8 +45,8 @@ DEBUG_IMAGE = 'capture.pgm'
 def get_camera():	
 	# Camera to use for capturing images.
 	# Use this code for capturing from the Pi camera:
-	import picam 
-	return picam.OpenCVCapture()
+	import cameraReader 
+	return cameraReader.OpenCVCapture()
 	# Use this code for capturing from a webcam:
 	# import webcam
 	# return webcam.OpenCVCapture(device_id=0)
