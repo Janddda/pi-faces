@@ -55,7 +55,7 @@ def normalize(X, low, high, dtype=None):
 	return np.asarray(X, dtype=dtype)
 
 if __name__ == '__main__':
-	print "Reading training images..."
+	print ("Reading training images...")
 	faces = []
 	labels = []
 	pos_count = 0
@@ -70,21 +70,21 @@ if __name__ == '__main__':
 		faces.append(prepare_image(filename))
 		labels.append(config.NEGATIVE_LABEL)
 		neg_count += 1
-	print 'Read', pos_count, 'positive images and', neg_count, 'negative images.'
+	print ('Read', pos_count, 'positive images and', neg_count, 'negative images.')
 
 	# Train model
-	print 'Training model...'
-	model = cv2.createEigenFaceRecognizer()
+	print ('Training model...')
+	model = cv2.face.createEigenFaceRecognizer()
 	model.train(np.asarray(faces), np.asarray(labels))
 
 	# Save model results
 	model.save(config.TRAINING_FILE)
-	print 'Training data saved to', config.TRAINING_FILE
+	print ('Training data saved to', config.TRAINING_FILE)
 
 	# Save mean and eignface images which summarize the face recognition model.
-	mean = model.getMat("mean").reshape(faces[0].shape)
+	mean = model.getMean().reshape(faces[0].shape)
 	cv2.imwrite(MEAN_FILE, normalize(mean, 0, 255, dtype=np.uint8))
-	eigenvectors = model.getMat("eigenvectors")
+	eigenvectors = model.getEigenVectors()
 	pos_eigenvector = eigenvectors[:,0].reshape(faces[0].shape)
 	cv2.imwrite(POSITIVE_EIGENFACE_FILE, normalize(pos_eigenvector, 0, 255, dtype=np.uint8))
 	neg_eigenvector = eigenvectors[:,1].reshape(faces[0].shape)
