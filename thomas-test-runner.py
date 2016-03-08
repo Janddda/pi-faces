@@ -8,6 +8,7 @@ faceCascade = cv2.CascadeClassifier(cascPath)
 video_capture = cv2.VideoCapture(0)
 
 while True:
+	print('Capturing image')
     # Capture frame-by-frame
     ret, frame = video_capture.read()
     if not ret: continue 	
