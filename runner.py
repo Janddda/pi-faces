@@ -20,9 +20,6 @@ if __name__ == '__main__':
         print ('Running detection...')
         print ('Press Ctrl-C to quit.')
         while True:
-                # Check if capture should be made.
-                # TODO: Check if button is pressed.
-                print ('Button pressed, looking for face...')
                 # Check for the positive face and unlock if found.
                 image = camera.read()
                 # Convert image to grayscale.
@@ -39,7 +36,9 @@ if __name__ == '__main__':
                 # Crop and resize image to face.
                 crop = face.resize(face.crop(image, x, y, w, h))
                 # Test face against model.
-                label, confidence = model.predict(crop)
+				label = ""
+				confidence = 0.0
+                model.predict(crop,label,confidence)
                 print ('Predicted {0} face with confidence {1} (lower is more confident).'.format(
                         'POSITIVE' if label == config.POSITIVE_LABEL else 'NEGATIVE', confidence))
                 if label == config.POSITIVE_LABEL and confidence < config.POSITIVE_THRESHOLD:
