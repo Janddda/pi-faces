@@ -1,7 +1,8 @@
 import cv2
 import sys
+import config 
 
-cascPath = sys.argv[1]
+cascPath = config.HAAR_FACES
 faceCascade = cv2.CascadeClassifier(cascPath)
 
 video_capture = cv2.VideoCapture(0)
