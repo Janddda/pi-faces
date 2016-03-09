@@ -35,7 +35,7 @@ while True:
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
-  else
+  else:
     print('capture was empty')  
 # When everything is done, release the capture
 video_capture.release()
