@@ -13,6 +13,8 @@ while True:
  #   if skip%4 == 0:
   #     continue
   ret, frame = video_capture.read()
+  print ret
+  print frame is not None
   if (ret is not None) and (frame is not None): 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     skip +=1
