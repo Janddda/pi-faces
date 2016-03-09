@@ -1,5 +1,7 @@
 import cv2
 import sys
+import numpy as np
+import time
 
 cascPath = sys.argv[1]
 skip = 0
@@ -9,11 +11,11 @@ video_capture = cv2.VideoCapture(0)
 
 while True:
     # Capture frame-by-frame
-#    skip +=1
- #   if skip%4 == 0:
-  #     continue
- 
-    ret, frame = video_capture.read()
+    # skip +=1
+    # if skip%4 == 0:
+    # continue
+  ret, frame = video_capture.read()
+  if (ret is True) and (frame is not None): 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     skip +=1
     if skip%3 == 0:
@@ -35,7 +37,11 @@ while True:
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
-
+  else:
+    print('capture was empty')
+    print(ret)
+    print(frame is not None)
+    time.sleep(1)	
 # When everything is done, release the capture
 video_capture.release()
 cv2.destroyAllWindows()
