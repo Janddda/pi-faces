@@ -1,6 +1,7 @@
 import cv2
 import sys
 import numpy as np
+import time
 
 cascPath = sys.argv[1]
 skip = 0
