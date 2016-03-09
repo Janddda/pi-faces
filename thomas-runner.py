@@ -36,8 +36,8 @@ if __name__ == '__main__':
                         continue
                 
                 x, y, w, h = result
-				cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
-				cv2.imshow('image',image)
+                cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
+                cv2.imshow('image',image)
                 # Crop and resize image to face.
                 crop = face.resize(face.crop(image, x, y, w, h))
                 # Test face against recognizer.
