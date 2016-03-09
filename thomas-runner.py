@@ -29,8 +29,6 @@ if __name__ == '__main__':
                 result = face.detect_single(image)
                 print (result)
                 cv2.imshow('image',image)
-                cv2.waitKey(0)
-                cv2.destroyAllwindows()
                 if result is None:
                         print ('Could not detect single face!  Check the image in capture.pgm' \
                                ' to see what was captured and try again with only one face visible.')
