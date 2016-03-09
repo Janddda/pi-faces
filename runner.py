@@ -7,12 +7,13 @@ import cv2
 import config
 import face
 
+# path to training images: training/positive
 
 if __name__ == '__main__':
-        # Load training data into model
+        # Load training data into recognizer
         print ('Loading training data...')
-        model = cv2.face.createEigenFaceRecognizer()
-        model.load(config.TRAINING_FILE)
+        recognizer = cv2.face.createEigenFaceRecognizer()
+        recognizer.load(config.TRAINING_FILE)
         print ('Training data loaded!')
         # Initialize camera
         camera = config.get_camera()
@@ -35,10 +36,8 @@ if __name__ == '__main__':
                 x, y, w, h = result
                 # Crop and resize image to face.
                 crop = face.resize(face.crop(image, x, y, w, h))
-                # Test face against model.
-				label = ""
-				confidence = 0.0
-                model.predict(crop,label,confidence)
+                # Test face against recognizer.
+                label, confidence = recognizer.predict(crop)
                 print ('Predicted {0} face with confidence {1} (lower is more confident).'.format(
                         'POSITIVE' if label == config.POSITIVE_LABEL else 'NEGATIVE', confidence))
                 if label == config.POSITIVE_LABEL and confidence < config.POSITIVE_THRESHOLD:
