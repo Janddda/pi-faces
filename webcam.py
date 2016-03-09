@@ -15,7 +15,7 @@ while True:
     # if skip%4 == 0:
     # continue
   ret, frame = video_capture.read()
-  if (ret is not None) and (frame is not None): 
+  if (ret is True) and (frame is not None): 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     skip +=1
     if skip%3 == 0:
@@ -39,6 +39,8 @@ while True:
         break
   else:
     print('capture was empty')
+	print(ret)
+	print(frame is not None)
     time.sleep(1)	
 # When everything is done, release the capture
 video_capture.release()
