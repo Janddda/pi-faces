@@ -38,4 +38,4 @@ if __name__ == '__main__':
                 crop = face.resize(face.crop(image, x, y, w, h))
                 # Test face against recognizer.
                 predicted = recognizer.predict(crop)
-                print('result from predict is: ' + predicted)
+                print('result from predict is %d: ' % predicted)
