@@ -14,7 +14,7 @@ while True:
   #     continue
  
     ret, frame = video_capture.read()
-    if (ret is none) or (frame is none):
+    if (ret is None) or (frame is None):
         print('video capture is empty')
         break
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
