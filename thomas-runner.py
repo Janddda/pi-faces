@@ -18,7 +18,7 @@ if __name__ == '__main__':
         # Initialize camera
         camera = config.get_camera()
         
-		print ('Running detection...')
+        print ('Running detection...')
         print ('Press Ctrl-C to quit.')
         while True:
                 # Check for the positive face and unlock if found.
