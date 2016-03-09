@@ -12,6 +12,8 @@ env/
 build/
 develop-eggs/
 dist/
+training.xml
+capture.pgm
 downloads/
 eggs/
 .eggs/
