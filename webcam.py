@@ -39,8 +39,8 @@ while True:
         break
   else:
     print('capture was empty')
-	print(ret)
-	print(frame is not None)
+    print(ret)
+    print(frame is not None)
     time.sleep(1)	
 # When everything is done, release the capture
 video_capture.release()
