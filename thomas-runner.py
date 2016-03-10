@@ -45,8 +45,7 @@ if __name__ == '__main__':
                 # Crop and resize image to face.
                 crop = face.resize(face.crop(image_gray, x, y, w, h))
                 # Test face against recognizer.
-                predicted = recognizer.predict(crop)
-                
+                predicted  = recognizer.predict(crop)                
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                         break
 
